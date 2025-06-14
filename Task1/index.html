@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #4CAF50;
+            transition: width 2s linear;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="addProgressBar()">Add</button>
+        <div id="progressBars"></div>
+    </div>
+
+    <script>
+        function addProgressBar() {
+            const progressBarsContainer = document.getElementById('progressBars');
+            
+            // Create progress container
+            const progressContainer = document.createElement('div');
+            progressContainer.className = 'progress-container';
+            
+            // Create progress bar
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            
+            // Add progress bar to container
+            progressContainer.appendChild(progressBar);
+            
+            // Add container to the page
+            progressBarsContainer.appendChild(progressContainer);
+            
+            // Trigger animation
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 0);
+        }
+    </script>
+</body>
+</html> 
